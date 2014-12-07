@@ -16,7 +16,7 @@ $(document).ready(function() {
         class: "swatch_cell row"
       });
 
-      for(var j=0; j<6; j++) {
+      for(var j=0; j<8; j++) {
         var swatchColCell = $('<div>', {
           class: "swatch_cell col"
         });
@@ -24,6 +24,21 @@ $(document).ready(function() {
       }
       this.controls.append(swatchRowCell);
     }
+
+    var eraseButton = $('<button>', {
+      id: "erase_button",
+      type: "button",
+      text: "erase"
+    });
+
+    var clearButton = $('<button>', {
+      id: "clear_button",
+      type: "button",
+      text: "clear"
+    });
+
+    this.controls.append(eraseButton);
+    this.controls.append(clearButton);
 
 
     // create grid with dimensions provided by arguments width and height
