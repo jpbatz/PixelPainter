@@ -4,14 +4,14 @@ body {
 
 h1 {
   text-align: left;
-  margin-left: 200px;
+  margin-left: 100px;
 }
 
 #controls {
   /*border: 1px solid black;*/
   background-color: white;
   display: inline-block;
-  margin-left: 200px;
+  margin-left: 100px;
 }
 
 #controls_div {
@@ -22,7 +22,7 @@ h1 {
   border: 1px solid black;
   background-color: white;
   display: inline-block;
-  margin-left: 200px;
+  margin-left: 100px;
   vertical-align: top;
 }
 

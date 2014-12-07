@@ -61,7 +61,7 @@ $(document).ready(function() {
 
   }  // end PixelPainter()
 
-  var pixelPainter = new PixelPainter(5,5);
+  var pixelPainter = new PixelPainter(12,12);
   $('#controls').append(pixelPainter.controls);
   $('#artboard').append(pixelPainter.artboard);
 
