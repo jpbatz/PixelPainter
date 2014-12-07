@@ -1,0 +1,22 @@
+body {
+  background-color: papayaWhip;
+}
+
+h1 {
+  text-align: left;
+}
+
+#controls {
+  border: 5px solid black;
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+}
+
+#artboard {
+  border: 5px solid blue;
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+}
+
