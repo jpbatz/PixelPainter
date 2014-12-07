@@ -2,27 +2,6 @@ $(document).ready(function() {
 
   // alert("Hello!");
 
-  // create a cell, later - make it user configurable
-
-  $('#controls').attr("style", "background-color: yellow");
-  $('#artboard').attr("style", "background-color: white");
-
-  // for(var i=0; i<2; i++) {
-  //   var newCell = $('<div>', {
-  //     class: "cell", 
-  //     css: {
-  //       "border": "1px solid black",
-  //       "height": "20px", 
-  //       "width": "20px"
-  //     }
-  //   });
-  //   this.controls.append(newCell);
-  // }
-
-  // $('#controls').append(newCell);
-  // $('#artboard').append(newCell);
-
-  // project structure
   function PixelPainter(width, height) {
 
     // bind 'artboard' as a property
@@ -31,59 +10,57 @@ $(document).ready(function() {
     this.controls = $('<div id="controls_div">');
 
 
-// *** TESTING  CONCEPT OF SINGLE CELL ***
-
-// need to make a constructor for cell
-
-    var cell1 = $('<div>', {
-      class: "swatch_cell", 
-      css: {
-        "border": "1px solid black",
-        "background-color": "red",
-        "height": "20px", 
-        "width": "20px"
-      }
-    });
-
-    this.controls.append(cell1);
-
-    var cell2 = $('<div>', {
-      class: "grid_cell", 
-      css: {
-        "border": "1px solid black",
-        "background-color": "white",
-        "height": "20px", 
-        "width": "20px"
-      }
-    });
-
-    this.artboard.append(cell2);
-
-//
-
-
-
-
-// ***** END TESTING AREA *****
-
     // create the 'controls' which includes the color swatch
-    //    calls cell
+    for(var i=0; i<12; i++) {
+      var swatchRowCell = $('<div>', {
+        class: "swatch_cell row"
+      });
 
-    // this.controls.append(newCell);
-    // this.artboard.append(newCell);
+      for(var j=0; j<6; j++) {
+        var swatchColCell = $('<div>', {
+          class: "swatch_cell col"
+        });
+        swatchRowCell.append(swatchColCell);
+      }
+      this.controls.append(swatchRowCell);
+    }
 
 
-    // create a grid (the 'artboard'), uses the width and height arguments
-    //    calls cell
+    // create grid with dimensions provided by arguments width and height
+    for(var i=0; i<height; i++) {
+      var gridRowCell = $('<div>', {
+        class: "grid_cell row"
+      });
 
+      for(var j=0; j<width; j++) {
+        var gridColCell = $('<div>', {
+          class: "grid_cell col"
+        });
+        gridRowCell.append(gridColCell);
+      }
+      this.artboard.append(gridRowCell);
+    }
 
 
     return pixelPainter;
 
   }  // end PixelPainter()
 
-  var pixelPainter = new PixelPainter(1,1);
+  var pixelPainter = new PixelPainter(5,5);
   $('#controls').append(pixelPainter.controls);
   $('#artboard').append(pixelPainter.artboard);
+
+
+
+// click on swatch_cell and get color
+  $('.swatch_cell.row').click(function() {
+    alert("got swatch!");
+  });
+
+// click on grid_cell and place color
+  $('.grid_cell.row').click(function() {
+    alert("got grid!");
+  });
+
 
 })
