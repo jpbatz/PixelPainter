@@ -85,7 +85,7 @@ $(document).ready(function() {
   // click on swatch_cell and get color
   var bgColor = "";
   $('.swatch_cell.col').click(function() {
-    alert("got swatch!");
+    // alert("got swatch!");
     // console.log(this);
     bgColor = $(this).css("background-color");
     console.log(bgColor);
@@ -98,7 +98,7 @@ $(document).ready(function() {
 
 // click on grid_cell and place color
   $('.grid_cell.col').click(function() {
-    alert("got grid!");
+    // alert("got grid!");
     console.log(this);
     console.log(bgColor);
     $(this).css({
@@ -109,7 +109,7 @@ $(document).ready(function() {
   // click on erase button and select cell to clear
   $("#erase_button").on("click", function() {
     $('.grid_cell.col').click(function() {
-      alert("erase grid!");
+      // alert("erase grid!");
       console.log(this);
       console.log(bgColor);
       $(this).css({
