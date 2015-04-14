@@ -1,14 +1,11 @@
 $(document).ready(function() {
 
-  // alert("Hello!");
-
   function PixelPainter(width, height) {
 
     // bind 'artboard' as a property
     this.artboard = $('<div id="artboard_div">');
     // bind 'controls' as a property
     this.controls = $('<div id="controls_div">');
-
 
     // create the 'controls' which includes the color swatch
     for(var i=0; i<16; i++) {
@@ -25,7 +22,6 @@ $(document).ready(function() {
       this.controls.append(swatchRowCell);
     }
 
-
     var eraseButton = $('<button>', {
       id: "erase_button",
       type: "button",
@@ -40,7 +36,6 @@ $(document).ready(function() {
 
     this.controls.append(eraseButton);
     this.controls.append(clearButton);
-
 
     // create grid with dimensions provided by 
     // the arguments width and height
@@ -58,7 +53,6 @@ $(document).ready(function() {
       this.artboard.append(gridRowCell);
     }
 
-
     return pixelPainter;
 
   }  // end PixelPainter()
@@ -67,9 +61,7 @@ $(document).ready(function() {
   $('#controls').append(pixelPainter.controls);
   $('#artboard').append(pixelPainter.artboard);
 
-
-    // fill color swatch
-
+  // fill color swatch
   $('.swatch_cell.col').each(function(item) {
     var red_color = Math.floor(Math.random()*255);
     var green_color = Math.floor(Math.random()*255);
@@ -78,7 +70,7 @@ $(document).ready(function() {
     console.log(rgb_color);
     $(this).css({
       "background-color": rgb_color
-    })
+    });
   });
 
 
@@ -89,21 +81,16 @@ $(document).ready(function() {
     // console.log(this);
     bgColor = $(this).css("background-color");
     console.log(bgColor);
-
-
-
-
-
   });
 
-// click on grid_cell and place color
+  // click on grid_cell and place color
   $('.grid_cell.col').click(function() {
     // alert("got grid!");
     console.log(this);
     console.log(bgColor);
     $(this).css({
       "background-color": bgColor
-    })
+    });
   });
 
   // click on erase button and select cell to clear
@@ -114,21 +101,19 @@ $(document).ready(function() {
       console.log(bgColor);
       $(this).css({
         "background-color": "#FFFFFF"
-      })
+      });
     });
   });
 
   // click on clear button to clear grid
   $("#clear_button").on("click", function() {
     $('.grid_cell.row').each(function(child) {
-      $('.grid_cell.col').remove();
+      $('.grid_cell.col').each(function() {
+        $('.grid_cell.col').css({
+        "background-color": "#FFFFFF"
+        });
+      });
     });
-    // click(function() {
-    //   alert("clear grid!");
-    //   $('.grid_cell.col').css({
-    //     "background-color": "#FFFFFF"
-    //   })
-    // });
   });
 
-})
+});
